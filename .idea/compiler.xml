@@ -24,7 +24,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="spring-01-Core-IoC-Bean-Annotation" options="--add-modules java.base" />
+      <module name="spring-00-Coupling" options="" />
+      <module name="spring-01-Core-IoC-Bean-Annotation" options="" />
     </option>
   </component>
 </project>
