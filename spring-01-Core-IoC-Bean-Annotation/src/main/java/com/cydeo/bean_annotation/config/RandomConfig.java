@@ -5,12 +5,14 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RandomConfig {
+
     @Bean
-    public String name(){
+    public String myString(){
         return "Cydeo";
     }
-@Bean
-    public Integer number(){
+
+    @Bean
+    public Integer myInteger(){
         return 5;
     }
 }

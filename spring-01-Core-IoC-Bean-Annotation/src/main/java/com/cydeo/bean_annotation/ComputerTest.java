@@ -13,7 +13,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ComputerTest {
-
     public static void main(String[] args) {
 
 
@@ -31,7 +30,7 @@ public class ComputerTest {
         DellCase dell = container.getBean(DellCase.class);
         AsusMotherboard asus = container.getBean(AsusMotherboard.class);
 
-        PC myPc = new PC(dell, sony, asus);
+        PC myPc = new PC(dell,sony,asus);
 
         myPc.powerUp();
 
@@ -49,21 +48,18 @@ public class ComputerTest {
 
         Monitor theMonitor2 = container.getBean("monitorSony", Monitor.class);  //DEFAULT BEAN NAME
         Monitor theMonitor3 = container.getBean("sony", Monitor.class);  //CUSTOM BEAN NAME
-        Monitor theMonitor4 = container.getBean(Monitor.class);  //@Primary
-    }}
-
-//Spring is an ecosystem that has number of projects in it(You can say that they are frameworks).
-//We call Spring Framework(which is one of those projects) as Spring Core, because it has all the core functions of Spring ecosystem
+        Monitor theMonitor4 = container.getBean( Monitor.class);  //@Primary
 
 
-// how to add dependencies in them Pom.xml file Right clicks inside the pom.xml code,
-// select Generate -> Add maven dependency -> Search for "Spring Core" and add the first one.
 
-/*
-There is a class called Class in java.
-It is holding information about an object, which class it is belong to.
-If you use .class, it is returning the Class object with your object's class information.
 
-Basically you can imagine something like this.
-new Class("ComputerConfig class")
- */
+
+
+
+
+
+
+
+
+    }
+}
