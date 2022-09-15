@@ -30,3 +30,46 @@ You can use these scripts to build your project,
  10- CydeoApplicationTest:
  This is a simple test class that ensures that the Spring Application context loads successfully.
   You will add more tests to the mix as you develop the application
+
+  ------
+
+Build Spring Specification
+--------------------------
+<parent> : This specifies that your project has spring-boot-starter-parent as its parent POM.
+ The parent POM provides dependency management for several libraries commonly used in Spring projects.
+ For those libraries covered by the parent POM, you won't have to specify a version, because it is inherited from the parent.
+
+All dependencies have the word starter in their artifact ID
+-----------------------------------------------------------
+Your build file will be significantly smaller and easier to manager,
+because you won't need to declare a dependency on every library you might need
+
+
+You can think of your dependencies in terms of what capabilities they provide,
+rather than their library names(web starter dependency)
+
+Spring Boot Plugin:
+-------------------
+-It provides a Maven goal that enables you to run the application using maven
+-It ensures that all dependency libraries are included within the executable JAR.
+
+
+Bootstrapping Application
+-------------------------
+@SpringBootApplication : is a composite annotation that combines the following annotations:
+
+1-@SpringBootConfiguration: Designates this class a configuration class. You can add Java
+based Spring framework configuration to this class if you need to.
+This annotation is specialized form of the  @Configuration annotation.
+
+2-@EnableAutoConfiguration: Enables Spring Boot automatic configuration.
+It tells Spring Boot to automatically configure any components that it thinks you will need.
+
+3-@ComponentScan: Enables component scanning.
+
+main() method: calls a static run method on SpringApplication class,
+which performs the actual bootstrapping of the application ,
+creating the Spring Application context(container).
+The two parameters passed to run() method are a configuration class, and the command line arguments.
+
+# means comment in .properties files
