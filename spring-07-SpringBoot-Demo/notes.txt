@@ -1,0 +1,32 @@
+Spring Boot Structure:
+1-src/main/java :
+ contains application source code
+
+2-src/main/java/resources :
+Contains non-java resources
+
+3-src/test/java :
+Contains test code
+
+4-mvnw and mvnw.cmd : These are maven wrapper scripts.
+You can use these scripts to build your project,
+ even if you do not have Maven installed on your machine
+
+ 5-pom.xml: This is the Maven build specification
+
+ 6- CydeoApplication.java:
+ This is the Spring Boot main class that bootstraps the project
+
+ 7- application.properties:
+ This file initially is empty, but it offers a place where you can specify configuration properties
+
+ // number 8 and 9,  it won't be much of use for back-end developer
+ 8- resources/static:
+ Contains any static content(images,css,js,etc).
+
+ 9- resources/templates:
+ Contains template file that will be used to render content to the browser(Thymeleaf)
+
+ 10- CydeoApplicationTest:
+ This is a simple test class that ensures that the Spring Application context loads successfully.
+  You will add more tests to the mix as you develop the application
