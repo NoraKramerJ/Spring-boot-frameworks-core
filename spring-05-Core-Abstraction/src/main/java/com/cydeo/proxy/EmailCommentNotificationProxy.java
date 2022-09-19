@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("EMAIL")
+@Qualifier("Email")
 public class EmailCommentNotificationProxy implements CommentNotificationProxy{
 
     @Override

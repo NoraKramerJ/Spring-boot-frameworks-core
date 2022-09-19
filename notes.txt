@@ -1,0 +1,35 @@
+Tomcat:
+is the structure that helps us to capture the requests from user, or send data to the user.
+That data transfering structure is called API, which we will learn later.
+But Tomcat is basically capturing the API requests
+
+Spring MVC Architecture:
+MVC: MODEL VIEW CONTROLLER
+-----------
+What is Web App?
+
+Components of the Web App?
+
+How HTTP translates to Java Code?
+
+Dispatcher Servlet -> HandlerMapping -> Controller -> View Resolver
+The process:
+Step 1:
+First request will be received by DispatcherServlet
+
+Step 2:
+DispatcherServlet will take the help of HandlerMapping
+and get to know the Controller class name and which method inside that class associated with the given request
+
+Step 3:
+Then Dispatcher Servlet goes to the Controller method inside the controller class,
+ and then it will process the request by executing appropriate methods and returns Model
+  and View object (contains Model data and View name) back to the DispatcherServlet
+
+Step 4:
+ Now DispatcherServlet send the View information it got in step 3
+ to the ViewResolver to get the actual view page (HTML page)
+
+Step 5:
+ Finally DispatcherServlet will pass the Model object to the View page to display the result
+

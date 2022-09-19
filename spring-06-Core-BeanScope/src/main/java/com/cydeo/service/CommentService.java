@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 //@Scope ("prototype")
 //or
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
+//@Scope("singleton")
 public class CommentService {
 
 

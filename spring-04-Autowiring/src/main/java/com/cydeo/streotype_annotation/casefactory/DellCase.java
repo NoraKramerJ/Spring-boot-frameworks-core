@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class DellCase extends Case  {
 
     public DellCase() {
-        super("2208","Dell","240");
+        super("2208","Dell","240",new Dimensions(9,4,7));
     }
 
     public void pressPowerButton() {
