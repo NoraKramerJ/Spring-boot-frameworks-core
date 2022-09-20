@@ -4,6 +4,7 @@ package com.cydeo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,8 +14,8 @@ public class CarController {
 
     @RequestMapping("/info")
     public String carInfo(@RequestParam String make, Model model){
-        //localhost:8080/info3?make=honda
-        //ReuestParam works with query parameters
+        //localhost:8080/info?make=honda
+        //RequestParam works with query parameters
 
      model.addAttribute("make",make);
 
@@ -28,7 +29,7 @@ public class CarController {
 
         return "car/car-info";
     }
-    @RequestMapping("/info")
+    @RequestMapping("/info3")
     public String carInfo3(@RequestParam String make, @RequestParam int year, Model model){
         //localhost:8080/info3?make=honda&year=2015
         //RequestParam works with query parameters
@@ -38,5 +39,15 @@ public class CarController {
 
         return "car/car-info";
 
+    }
+
+    //PATH VARIABLE
+    @RequestMapping("/info/{make}/{year}") //localhost:8080/info/honda/2015
+    public String getCarInfo(@PathVariable String make,@PathVariable int year){
+
+        System.out.println(make);
+        System.out.println(year);
+
+        return "car/car-info";
     }
 }
