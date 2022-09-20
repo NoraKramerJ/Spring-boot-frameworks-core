@@ -12,6 +12,8 @@ Components of the Web App?
 
 How HTTP translates to Java Code?
 
+@RequestMapping :define the end point
+
 Dispatcher Servlet -> HandlerMapping -> Controller -> View Resolver
 The process:
 Step 1:
@@ -32,4 +34,7 @@ Step 4:
 
 Step 5:
  Finally DispatcherServlet will pass the Model object to the View page to display the result
+
+         @RequestParam works with query parameters
+
 

@@ -1,9 +1,15 @@
 package com.cydeo.controller;
 
 
+import com.cydeo.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Controller
 public class StudentController {
@@ -14,7 +20,28 @@ public class StudentController {
     // we use Model here, to execute a method belong to interface
        //method Model interface
     model.addAttribute("name","cydeo");
-        return "student/welcome";
+    model.addAttribute("course","MVC");
+    String subject="Spring Boot";
+    model.addAttribute("subject",
+            subject);
+
+    int studentId=new Random().nextInt();
+    model.addAttribute("id",studentId);
+
+
+    List<Integer> numbers=new ArrayList<>();
+    numbers.add(3);
+    numbers.add(4);
+    numbers.add(6);
+    model.addAttribute("numbers",numbers);
+
+    LocalDate dt=LocalDate.now();
+    model.addAttribute("date",dt);
+
+
+    Student student=new Student(1,"Nora","Merkel");
+    model.addAttribute("student",student);
+        return "/student/welcome";
 
     }
 }
