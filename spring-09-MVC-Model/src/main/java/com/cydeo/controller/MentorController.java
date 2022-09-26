@@ -17,16 +17,16 @@ public class MentorController {
     @RequestMapping("/MentorInfo")
     public String mentorInfo(Model model) {
 
-       List<Mentor> mentorList=new ArrayList<>();
-       mentorList.add(new Mentor("Maya", "Merkel",
+       List<Mentor> mentors=new ArrayList<>();
+       mentors.add(new Mentor("Maya", "Merkel",
                 32, Gender.FEMALE));
 
-       mentorList.add(new Mentor("Sara", "Russell",
+       mentors.add(new Mentor("Sara", "Russell",
                 30, Gender.FEMALE));
-        mentorList.add(new Mentor("Nadia", "Boban",
+        mentors.add(new Mentor("Nadia", "Boban",
                 29, Gender.FEMALE));
 
-model.addAttribute("mentors",mentorList);
+model.addAttribute("mentors",mentors);
 
 
         return "mentor/mentor-List";

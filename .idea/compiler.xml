@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-training-02" />
         <module name="spring-02-Core-IoC-Stereotype-Annotation" />
+        <module name="spring-10-Thymeleaf" />
         <module name="spring-03-Wiring" />
         <module name="spring-04-Autowiring" />
         <module name="spring-06-Core-BeanScope" />
@@ -21,6 +22,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="spring-10--ThymeLeaf" target="11" />
       <module name="Spring-training-02" target="1.5" />
     </bytecodeTargetLevel>
   </component>
@@ -31,6 +33,8 @@
       <module name="spring-07-SpringBoot-Demo" options="-parameters" />
       <module name="spring-08-MVC-Controller" options="-parameters" />
       <module name="spring-09-MVC-Model" options="-parameters" />
+      <module name="spring-10--ThymeLeaf" options="-parameters" />
+      <module name="spring-10-Thymeleaf" options="-parameters" />
     </option>
   </component>
 </project>
