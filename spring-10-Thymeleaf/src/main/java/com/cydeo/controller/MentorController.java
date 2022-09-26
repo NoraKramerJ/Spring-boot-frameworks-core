@@ -1,23 +1,44 @@
 package com.cydeo.controller;
 
+import com.cydeo.model.Mentor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 @Controller
 @RequestMapping("/mentor")
 public class MentorController {
 
-    @RequestMapping("/register")//locahost:8080/mentor/register
-    public String register(){
+    @GetMapping("/register")//locahost:8080/mentor/register
+    @PostMapping("/register")
+    public String register(Model model){
 
-        return "student/register";
+        List<String> batchList= Arrays.asList("JD1","JD2","JD3");
+        model.addAttribute("batchList",batchList);
+        model.addAttribute("mentor",new Mentor());
+        return "mentor/mentor-register";
     }
-    @RequestMapping("/drop")//locahost:8080/mentor/drop
-    public String drop(){
+    @PostMapping("/confirm")
 
-        return "student/register";
+    public String submitForm(@ModelAttribute("mentor") Mentor mentor){
+
+
+        //how I can access to "mentor" attribute in this method
+  //      return"mentor/mentor-confirmation";
+       // model.addAttribute("mentor",new Mentor());
+     //   return "mentor/mentor-register"; // we use this one if we want to reset to an empty page
+        return "redirect:/mentor/register";
     }
+
+
+
 }
 
 
