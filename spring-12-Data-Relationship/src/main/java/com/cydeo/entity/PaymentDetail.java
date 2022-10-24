@@ -23,7 +23,8 @@ public class PaymentDetail {
     @Column(columnDefinition ="Date")
     private LocalDate payoutDate;
 
-    @OneToOne
+    // this is for learning purposes , as payment doesn't really need to be here
+    @OneToOne(mappedBy ="paymentDetail")
     private Payment payment;
 
     public PaymentDetail(BigDecimal merchantPayoutAmount, BigDecimal commissionAmount, LocalDate payoutDate) {
