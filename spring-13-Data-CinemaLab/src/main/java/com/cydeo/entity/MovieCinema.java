@@ -1,6 +1,5 @@
 package com.cydeo.entity;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,14 +14,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class MovieCinema extends BaseEntity {
 
-
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime dateTime;
 
-    @ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Movie movie;
-
-    @ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cinema cinema;
 
 

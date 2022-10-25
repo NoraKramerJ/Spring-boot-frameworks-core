@@ -1,6 +1,5 @@
 package com.cydeo.entity;
 
-
 import com.cydeo.enums.UserRole;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +9,8 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="account_details")
-public class Account extends BaseEntity{
+@Table(name = "account_details")
+public class Account extends BaseEntity {
 
     private String name;
     private String address;
@@ -22,8 +21,6 @@ public class Account extends BaseEntity{
     private String postalCode;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-
     @OneToOne(mappedBy = "account")
     private User user;
-
 }
