@@ -38,10 +38,11 @@ return courseService.getCourses();
 @PostMapping
     public CourseDTO createCourse(@RequestBody CourseDTO course){
         return courseService.createCourse(course);
+        //@RequestBody: help me capture the JSON (that object)
 
     }
 
-    @PutMapping("{id}")
+    @PutMapping("{id}") // put here means update
 
     public void updateCourse(@PathVariable("id") long courseId,@RequestBody CourseDTO course){
 

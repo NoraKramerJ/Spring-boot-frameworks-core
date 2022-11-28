@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController// @Controller +@ResponseBody
 @RequestMapping("/courses/api/v2")
 public class CourseController_ResponseEntity {
 
@@ -46,5 +46,19 @@ public class CourseController_ResponseEntity {
 
     }
 
+@DeleteMapping("{id}")
+
+    public ResponseEntity<Void> deleteCourseById(@PathVariable("id") long courseId){
+
+        courseService.deleteCourseById(courseId);
+        return ResponseEntity.noContent().build();
+}
+
+@PostMapping("{id}")
+public ResponseEntity<Void> updateCourse(@PathVariable("id") long courseId, @RequestBody CourseDTO course){
+        courseService.updateCourse(courseId,course);
+
+        return ResponseEntity.noContent().build();
+}
 
 }
