@@ -10,6 +10,7 @@
         <module name="spring-10-Thymeleaf" />
         <module name="spring-13-Data-CinemaLab" />
         <module name="spring-11-Data-TableCreation" />
+        <module name="spring-17-REST-ConsumingApis" />
         <module name="spring-03-Wiring" />
         <module name="spring-00-Coupling" />
         <module name="spring-01-Core-IoC-Bean-Annotation" />
