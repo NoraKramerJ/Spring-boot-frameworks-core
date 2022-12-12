@@ -1,11 +1,9 @@
 package com.cydeo.aspect;
 
 
+import com.cydeo.dto.CourseDTO;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger; //The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -73,17 +71,22 @@ public class LoggingAspect {
 
     }*/
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+/*    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
     public void afterReturningGetMappingAnnotation() {
     }
 
-  /*  @AfterReturning(pointcut = "afterReturningGetMappingAnnotation()", returning = "result")
+    @AfterReturning(pointcut = "afterReturningGetMappingAnnotation()", returning = "result")
     public void afterReturningGetMappingOperation(JoinPoint jointPoint, Object result){
 logger.info("After Returning  -> Method:{}, Result: {}", jointPoint.getSignature(), result.toString());
-    }*/
+    }
 
-    @AfterReturning(pointcut = "afterReturningGetMappingAnnotation()", returning = "results")
-    public void afterReturningGetMappingOperation(JoinPoint jointPoint, List< Object> results) {
+   @AfterReturning(pointcut = "afterReturningGetMappingAnnotation()", returning = "results")
+    public void afterReturningGetMappingOperation(JoinPoint jointPoint, List<CourseDTO> results) {
         logger.info("After Returning  -> Method:{}, Results: {}", jointPoint.getSignature(), results.toString());
     }
+
+    @AfterThrowing(pointcut = "afterReturningGetMappingAnnotation()", throwing = "exception")
+    public void afterThrowingGetMappingOperation(JoinPoint joinPoint, RuntimeException exception){
+        logger.error("After Throwing -> Method: {}, Exception: {}", joinPoint.getSignature().toShortString(), exception.getMessage());
+    }*/
 }
