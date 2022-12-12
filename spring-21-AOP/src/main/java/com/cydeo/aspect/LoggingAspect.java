@@ -3,6 +3,7 @@ package com.cydeo.aspect;
 
 import com.cydeo.dto.CourseDTO;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger; //The Simple Logging Facade for Java (SLF4J) serves as a simple facade or abstraction for various logging frameworks
 import org.slf4j.LoggerFactory;
@@ -89,4 +90,25 @@ logger.info("After Returning  -> Method:{}, Result: {}", jointPoint.getSignature
     public void afterThrowingGetMappingOperation(JoinPoint joinPoint, RuntimeException exception){
         logger.error("After Throwing -> Method: {}, Exception: {}", joinPoint.getSignature().toShortString(), exception.getMessage());
     }*/
+
+    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+    public void loggingAnnotationPC(){
+
+    }
+    @Around("loggingAnnotationPC()")
+    public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint){
+
+        logger.info("Before -> Method: {} - Parameter {}",
+        proceedingJoinPoint.getSignature().toShortString(),proceedingJoinPoint.getArgs());
+        Object result= null;
+
+        try{
+            result=proceedingJoinPoint.proceed();
+
+        } catch(Throwable throwable){
+            throwable.printStackTrace();
+        }
+        logger.info("After -> Method: {} - Result: {}",proceedingJoinPoint.getSignature().toShortString(),result.toString());
+        return result;
+    }
 }
