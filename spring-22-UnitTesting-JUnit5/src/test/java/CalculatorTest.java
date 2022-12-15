@@ -1,10 +1,32 @@
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.nio.file.AccessDeniedException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
+    @BeforeAll
+    static void setUpAll(){
+        System.out.println("Before all is executed");
+    }
+    @AfterAll
+
+    static void tearDownAll(){
+        System.out.println("After all is executed");
+    }
+    @BeforeEach
+    void setUpEach(){
+        System.out.println("BeforeEach is executed");
+    }
+    @AfterEach
+    void tearDownEach(){
+        System.out.println("AfterEach is executed");
+    }
+
+
+
+
+
     @Test
    void addFail() {
      fail("Not implemented");
