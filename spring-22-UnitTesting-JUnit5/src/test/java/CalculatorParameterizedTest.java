@@ -1,38 +1,55 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.NullSource;
-import org.junit.jupiter.params.provider.ValueSource;
-import static org.junit.jupiter.api.Assertions.*;
-public class CalculatorParameterizedTest {
+import org.junit.jupiter.params.provider.*;
 
+public class CalculatorParameterizedTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"Java", "JS", "TS"})
     void testCase1(String arg) {
-        assertFalse(arg.isEmpty());
-
+        Assertions.assertFalse(arg.isEmpty());
     }
+
     @ParameterizedTest
-    @ValueSource(ints = {3,6,9})
+    @ValueSource(ints = {3, 6, 9})
     void testCase1(int num) {
-        assertEquals(0,num % 3);
-        // if all numbers can be divided by 3 or not, zero here the remaining is zero
+        Assertions.assertEquals(0, num % 3);
+    }
 
-    }
-    @NullAndEmptySource
-    //@EmptySource
-    //@NullSource
-    void testCase3(String arg){
-        Assertions.assertFalse(arg.isEmpty());
-    }
     @ParameterizedTest
-    @MethodSource("")
-    void testCase4(String arg){
+    @ValueSource(strings = {"Java", "JS", "TS"})
+//    @EmptySource            // ""
+//    @NullSource
+    @NullAndEmptySource
+    void testCase3(String arg) {
         Assertions.assertFalse(arg.isEmpty());
     }
-    static String[] stringProvider(){
-        return new String[]{"Java","JS","TS"};
+
+    @ParameterizedTest
+    @MethodSource("stringProvider")    // If the method is in different class -> ClassName#stringProvider,
+        // it should be static, and return a stream, an iterable, or an array of elements
+    void testCase4(String arg) {
+        Assertions.assertFalse(arg.isEmpty());
     }
+
+    static String[] stringProvider() {
+        return new String[]{"Java", "JS", "TS"};
+    }
+
+    @ParameterizedTest
+    @CsvSource({ // Csc IS A COMMA SEPERATED VALUES
+            "10, 20, 30",
+            "20, 20, 40",
+            "30, 20, 100"
+    })
+    void testCase5(int num1, int num2, int result) {
+        Assertions.assertEquals(result, Calculator.add(num1, num2));
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/sample-data.csv", numLinesToSkip = 1)
+    void testCase6(int num1, int num2, int result) {
+        Assertions.assertEquals(result, Calculator.add(num1, num2));
+    }
+
 }
